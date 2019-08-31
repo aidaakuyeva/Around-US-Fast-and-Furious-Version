@@ -1,0 +1,29 @@
+Michael Colombo, Shruti Keoliya, Aida Akuyeva
+
+Project: Around US Fast and Furious Version
+
+Category: Implementation (Graph and Graph Algorithms)
+
+Summary:
+
+We will be creating a graph with American airports as nodes and flights as edges. If a flight exists between the airports, then there is an edge between them.
+
+First, we got the data about American airlines through the following source:
+https://www.transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time&fbclid=IwAR0Z75XTnHqokVxlZy4JNTDD73LnbosMFHNgCeHzytAVW198HXQpdVoiScI. We then went to the Marketing Carrier On-Time Performance (Beginning January 2018) and used the data from the departure performance category. Since the data was in the form of names of cities and destination names, we used an R code called AirPlaneData.R to clean the data and create two files called edges.csv and nodes.csv which we used for java manipulation. 
+
+To convert our data to a graph, we represented our graph as a map of integer to array list of pairs (where pair is an inner class that stores the neighboring node and the edge weight).
+Furthermore, we implemented the Bellman-Ford algorithm to find the shortest path between two nodes (based on the weight, which is the delay time). 
+We will be attaching the code in our zip file (Graph.java). The only possible change you can make there is modifying the root for the output shortest paths function. Running this algorithm results in an Output.csv. 
+
+Using the Output.csv we created an R Shiny app called Visual.R wherein the user can find the shortest path from Aberdeen, SD to any of the other airports based on delay times. This graph has been visualized as well. Running Visual.R in RStudio, the user can pick any city from the dropdown menu and click the submit button to see the visualization. Additionally, the network visualization has labels as numbers but the user can view the dropdown menu to see the cities the numbers correspond to. 
+
+Therefore in text terms the user should first:
+1. Open RStudio and run AirPlaneData.R. The only input needed is MainEdges.csv
+2. Use the edges.csv and nodes.csv outputted from AirPlaneData.R to run Graph.java. The output is going to be Output.csv. 
+3. Open RStudio and run Visual.R with Output.csv in the same directory. Click "Run App" to run the program and use the dropdown menu to see the short term path visualizations. 
+
+Work break down:
+Scraping data - Aida and Michael
+Data processing - Shruti
+Bellman-Ford - Aida and Michael
+UI - Shruti
